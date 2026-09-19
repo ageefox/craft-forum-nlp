@@ -5,15 +5,15 @@ from pathlib import Path
 
 import pandas as pd
 
-from takemeter.data import load_data
-from takemeter.models import evaluate_majority, evaluate_tfidf
-from takemeter.reporting import write_results
-from takemeter.splits import make_thread_held_out_splits
+from craft_forum_nlp.data import load_data
+from craft_forum_nlp.models import evaluate_majority, evaluate_tfidf
+from craft_forum_nlp.reporting import write_results
+from craft_forum_nlp.splits import make_thread_held_out_splits
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Run the TakeMeter benchmark")
-    parser.add_argument("--data", type=Path, default=Path("takemeter_dataset.csv"))
+    parser = argparse.ArgumentParser(description="Run the Craft Forum NLP benchmark")
+    parser.add_argument("--data", type=Path, default=Path("craft_forum_dataset.csv"))
     parser.add_argument("--output-dir", type=Path, default=Path("results"))
     parser.add_argument(
         "--models",
@@ -40,7 +40,7 @@ def main() -> None:
         results.append(tfidf)
         details["tfidf_validation"] = validation_results
     if "distilbert" in args.models:
-        from takemeter.transformer import evaluate_distilbert
+        from craft_forum_nlp.transformer import evaluate_distilbert
 
         development = pd.concat(
             [splits.train, splits.validation], ignore_index=True
@@ -53,7 +53,7 @@ def main() -> None:
         results.append(transformer)
         details["distilbert_training"] = history
     if "distilbert_weighted" in args.models:
-        from takemeter.transformer import evaluate_distilbert
+        from craft_forum_nlp.transformer import evaluate_distilbert
 
         development = pd.concat(
             [splits.train, splits.validation], ignore_index=True

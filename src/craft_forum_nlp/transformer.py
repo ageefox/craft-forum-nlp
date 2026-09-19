@@ -6,8 +6,8 @@ from dataclasses import dataclass
 import numpy as np
 import pandas as pd
 
-from takemeter.data import LABELS
-from takemeter.models import ModelResult, score_predictions
+from craft_forum_nlp.data import LABELS
+from craft_forum_nlp.models import ModelResult, score_predictions
 
 
 MODEL_NAME = "distilbert-base-uncased"

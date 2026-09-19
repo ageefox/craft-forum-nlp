@@ -25,4 +25,4 @@ jobs:
       - name: Run tests
         run: pytest
       - name: Smoke-test benchmark
-        run: takemeter-benchmark --models majority tfidf --output-dir /tmp/takemeter-results
+        run: craft-forum-benchmark --models majority tfidf --output-dir /tmp/craft-forum-results

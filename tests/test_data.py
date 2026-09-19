@@ -1,11 +1,11 @@
 import pandas as pd
 import pytest
 
-from takemeter.data import LABELS, load_data
+from craft_forum_nlp.data import LABELS, load_data
 
 
 def test_repository_dataset_satisfies_contract():
-    frame = load_data("takemeter_dataset.csv")
+    frame = load_data("craft_forum_dataset.csv")
 
     assert len(frame) == 212
     assert frame["id"].is_unique
