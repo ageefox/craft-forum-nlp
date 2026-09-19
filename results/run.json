@@ -1,6 +1,6 @@
 {
   "dataset": {
-    "path": "takemeter_dataset.csv",
+    "path": "craft_forum_dataset.csv",
     "sha256": "1fc541ecfb961fec52b84525e8eab5927362514427f764f7e16d3610871cd9c7",
     "rows": 212
   },

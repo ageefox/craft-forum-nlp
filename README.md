@@ -1,6 +1,6 @@
-# TakeMeter
+# Craft Forum Discourse Classification
 
-TakeMeter is a small NLP benchmark for classifying how people participate in art and craft forums. It distinguishes technical help, showcase reactions, critique, and broader opinion.
+Craft Forum NLP is a small benchmark for classifying how people participate in art and craft forums. It distinguishes technical help, showcase reactions, critique, and broader opinion.
 
 The main question is whether a model trained on a small labeled dataset can generalize to conversations it has never seen. To test that, all posts from the same forum thread stay in the same split.
 
@@ -68,7 +68,7 @@ python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements-lock.txt
 pip install --no-deps -e .
-takemeter-benchmark
+craft-forum-benchmark
 ```
 
 The full benchmark downloads the pinned DistilBERT checkpoint and writes fresh artifacts to `results/`. To run only the lightweight models:
@@ -76,7 +76,7 @@ The full benchmark downloads the pinned DistilBERT checkpoint and writes fresh a
 ```bash
 pip install -r requirements-ci.txt
 pip install --no-deps -e .
-takemeter-benchmark --models majority tfidf
+craft-forum-benchmark --models majority tfidf
 ```
 
 Run the tests with:
@@ -91,10 +91,10 @@ The tests validate the dataset, prevent source-thread overlap, check determinist
 
 ```text
 .
-├── src/takemeter/          # data validation, splits, models, and reporting
+├── src/craft_forum_nlp/   # data validation, splits, models, and reporting
 ├── tests/                  # integrity and benchmark regression tests
 ├── results/                # metrics, predictions, run metadata, and figures
-├── takemeter_dataset.csv   # labeled forum excerpts with source URLs
+├── craft_forum_dataset.csv # labeled forum excerpts with source URLs
 ├── DATA.md                 # dataset provenance and reuse notes
 ├── pyproject.toml
 └── requirements-lock.txt

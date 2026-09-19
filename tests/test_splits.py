@@ -1,9 +1,9 @@
-from takemeter.data import LABELS, load_data
-from takemeter.splits import make_thread_held_out_splits
+from craft_forum_nlp.data import LABELS, load_data
+from craft_forum_nlp.splits import make_thread_held_out_splits
 
 
 def test_splits_are_disjoint_and_complete():
-    frame = load_data("takemeter_dataset.csv")
+    frame = load_data("craft_forum_dataset.csv")
     splits = make_thread_held_out_splits(frame)
 
     ids = [set(part["id"]) for part in splits.as_dict().values()]
@@ -20,14 +20,14 @@ def test_splits_are_disjoint_and_complete():
 
 
 def test_each_split_contains_every_label():
-    splits = make_thread_held_out_splits(load_data("takemeter_dataset.csv"))
+    splits = make_thread_held_out_splits(load_data("craft_forum_dataset.csv"))
 
     for frame in splits.as_dict().values():
         assert set(frame["label"]) == set(LABELS)
 
 
 def test_split_assignment_is_stable_when_input_order_changes():
-    frame = load_data("takemeter_dataset.csv")
+    frame = load_data("craft_forum_dataset.csv")
     expected = make_thread_held_out_splits(frame)
     shuffled = frame.sample(frac=1, random_state=99).reset_index(drop=True)
     actual = make_thread_held_out_splits(shuffled)
@@ -37,7 +37,7 @@ def test_split_assignment_is_stable_when_input_order_changes():
 
 
 def test_current_split_sizes_and_thread_counts_are_recorded():
-    splits = make_thread_held_out_splits(load_data("takemeter_dataset.csv"))
+    splits = make_thread_held_out_splits(load_data("craft_forum_dataset.csv"))
 
     assert {name: len(frame) for name, frame in splits.as_dict().items()} == {
         "train": 140,

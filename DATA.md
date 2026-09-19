@@ -1,6 +1,6 @@
 # Dataset notes
 
-`takemeter_dataset.csv` contains 212 short excerpts collected from publicly accessible discussion threads on WetCanvas and KnittingHelp. The dataset was assembled for a small, non-commercial NLP study of discourse in art and craft communities.
+`craft_forum_dataset.csv` contains 212 short excerpts collected from publicly accessible discussion threads on WetCanvas and KnittingHelp. The dataset was assembled for a small, non-commercial NLP study of discourse in art and craft communities.
 
 Each row records:
 

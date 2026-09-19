@@ -1,13 +1,13 @@
 import pandas as pd
 import pytest
 
-from takemeter.data import load_data
-from takemeter.models import evaluate_majority, evaluate_tfidf
-from takemeter.splits import make_thread_held_out_splits
+from craft_forum_nlp.data import load_data
+from craft_forum_nlp.models import evaluate_majority, evaluate_tfidf
+from craft_forum_nlp.splits import make_thread_held_out_splits
 
 
 def test_lightweight_benchmarks_return_one_prediction_per_test_row():
-    splits = make_thread_held_out_splits(load_data("takemeter_dataset.csv"))
+    splits = make_thread_held_out_splits(load_data("craft_forum_dataset.csv"))
 
     majority = evaluate_majority(splits.train, splits.test)
     tfidf, validation_results = evaluate_tfidf(
@@ -21,7 +21,7 @@ def test_lightweight_benchmarks_return_one_prediction_per_test_row():
 
 
 def test_published_lightweight_metrics_match_current_code():
-    splits = make_thread_held_out_splits(load_data("takemeter_dataset.csv"))
+    splits = make_thread_held_out_splits(load_data("craft_forum_dataset.csv"))
     actual_majority = evaluate_majority(splits.train, splits.test)
     actual_tfidf, _ = evaluate_tfidf(splits.train, splits.validation, splits.test)
     published = pd.read_csv("results/metrics.csv").set_index("model")

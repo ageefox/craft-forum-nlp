@@ -13,9 +13,9 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.metrics import classification_report, confusion_matrix
 
-from takemeter.data import LABELS
-from takemeter.models import ModelResult
-from takemeter.splits import DatasetSplits
+from craft_forum_nlp.data import LABELS
+from craft_forum_nlp.models import ModelResult
+from craft_forum_nlp.splits import DatasetSplits
 
 
 DISPLAY_NAMES = {
